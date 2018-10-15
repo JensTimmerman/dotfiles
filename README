@@ -1,0 +1,7 @@
+ln -s $PWD/.vim ~/.vim
+ln -s $PWD/.vimrc ~/.vimrc
+git submodule init
+git submodule update --recursive
+cd ~/.vim/bundle/YouCompleteMe
+sudo dnf install cmake gcc-c++ make python3-devel
+cmake -G "<generator>" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
