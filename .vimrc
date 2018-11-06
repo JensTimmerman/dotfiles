@@ -30,6 +30,8 @@ nnoremap <C-H> <C-W><C-H>
 
 " add testing shortcut
 map <F5> :wa<CR>:!python setup.py test<CR>
+" testing in latex is building the latex project
+autocmd FileType tex nnoremap<buffer> <F5> :latexmk -r latexmkrc rapport.tex -f -pvc
 " set swap folder
 set directory=$HOME/.vim/swapfiles//
 
@@ -100,3 +102,11 @@ au BufRead,BufNewFile *.pan set filetype=pan
 setlocal omnifunc=pancomplete#Complete
 " have powerline everywhere
 set laststatus=2
+
+" spellcheck for tex documents
+" change nl_be to en_uk for english texsts
+au BufRead,BufNewFile *.tex setlocal spell spelllang=nl
+
+" subtilly highlight bad spelled words
+highlight SpellBad ctermbg=000
+
